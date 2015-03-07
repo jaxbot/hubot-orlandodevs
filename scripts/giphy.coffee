@@ -5,7 +5,7 @@
 #   HUBOT_GIPHY_API_KEY
 #
 # Commands:
-#   hubot gif me <query> - Returns an animated gif matching the requested search term.
+#   giphy <search term> - Returns a gif matching that query from Giphy
 # Author:
 #   Originally by kevinthompson, modified by Jaxbot
 
@@ -14,7 +14,7 @@ giphy =
   base_url: 'http://api.giphy.com/v1'
 
 module.exports = (robot) ->
-  robot.hear /(gif|giphy)( me)? (.*)/i, (msg) ->
+  robot.hear /^(gif|giphy)( me)? (.*)/i, (msg) ->
     giphyMe msg, msg.match[3], (url) ->
       msg.send url
 
