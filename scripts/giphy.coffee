@@ -17,6 +17,9 @@ module.exports = (robot) ->
   robot.hear /^(gif|giphy)( me)? (.*)/i, (msg) ->
     giphyMe msg, msg.match[3], (url) ->
       msg.send url
+  robot.respond /(gif|giphy) (.*)/i, (msg) ->
+    giphyMe msg, msg.match[2], (url) ->
+      msg.reply url
 
 giphyMe = (msg, query, cb) ->
   endpoint = '/gifs/search'
